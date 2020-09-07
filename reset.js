@@ -22,8 +22,6 @@ jSoul(document).on('linksloaded', function(){
 
         ptkend = ptkstart - ptkend;
 
-       // console.log(prepare_stats);
-
         if(points.length > 0)
         {
             jSoul.post('http://soulmu.pl/index.php?strona=mupageaccount/rozdaj&char='+charname,

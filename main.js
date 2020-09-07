@@ -39,10 +39,14 @@ function getClassShortcut(classname)
 
 jSoul(document).ready(function(){
 	let char_table = $("table[width=210][height=484]");
+
+	let charactersCount = 0;
 	
 	char_table.find('td[background*="nowypanel"]').each(function(index, item){
 		if(jSoul(this).text().length == 0)
 			return;
+
+		charactersCount++;	
 
 		let td_char = jSoul(this).find('td[width=120][height=65]').eq(0);
 		
@@ -70,7 +74,8 @@ jSoul(document).ready(function(){
 		buildLinkToAppend.parent().append(buildIsOn(charname))
 	});
 	
-	document.dispatchEvent(event_links);
+	if(charactersCount > 0)
+		document.dispatchEvent(event_links);
 })
 
 jSoul(document).on("click", "#closeBuild", function(){
@@ -96,13 +101,10 @@ jSoul(document).on("submit", "#buildStats", function(e){
 	}
 	
 	var data = jSoul("#buildStats :input").serializeArray();
-	//console.log(data);
 	
 	let charname = jSoul("#buildStats").data('charname');
 	
 	saveOrCreateBuild(charname, {stats: data} );
-	
-	//console.log(localStorage.getItem(charname));
 	
 	alert("Zapisano pomyślnie");
 		
@@ -121,9 +123,6 @@ jSoul(document).on('change', '#buildStats .percentInput', function(){
 function updateStats(onSave = false)
 {
 	jSoul('.pointsToAdd').text('');
-
-	//let pointToAddColor = jSoul(this).parent().parent().find('.pointsToAdd');
-	//pointToAddColor.text(`+${toAddForConst}`);
 
 	let availablePoints = jSoul('.rrPoints').data('points'); // 81 000
 	var data = jSoul("#buildStats :input").serializeArray();
@@ -254,7 +253,6 @@ function showBuildWindow(e)
 		let stat = jSoul(`<div class="statistic"><span>${this}</span><div class="pointsToAdd"></div></div>`);
 		
 		let select_list = jSoul(selectList()).attr('name', this).change(function(){
-			//console.log(jSoul(this).prop('selectedIndex'));
 			updateSelectList(this);
 			
 			updateStats();
