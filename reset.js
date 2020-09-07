@@ -5,7 +5,7 @@ jSoul(document).on('linksloaded', function(){
 
     if(build != null && !build.active)
     {
-        alert('lol');
+        console.log(build);
         //calculateStats(build.reset * build.ppr)
     }
 });

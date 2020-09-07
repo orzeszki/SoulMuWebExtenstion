@@ -40,10 +40,10 @@ function getClassShortcut(classname)
 jSoul(document).ready(function(){
 	let char_table = $("table[width=210][height=484]");
 	
-	jSoul.each(char_table.find('td[background*="nowypanel"]'), function(index, item){
+	char_table.find('td[background*="nowypanel"]').each(function(index, item){
 		if(jSoul(this).text().length == 0)
 			return;
-		
+
 		let td_char = jSoul(this).find('td[width=120][height=65]').eq(0);
 		
 		let charname = td_char.find('a[href*="char"]').text();
