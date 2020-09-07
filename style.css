@@ -1,0 +1,114 @@
+.buildWindowOverlay {
+	position: fixed;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.buildWindowOverlay > .buildWindow {
+    background-color: #000;
+    margin: 0 auto;
+	border: 4px white double;
+}
+
+.buildWindowOverlay > .buildWindow #closeBuild {
+	float: right;
+    border: 1px white solid;
+    padding: 2px 5px;
+}
+
+.buildWindowOverlay > .buildWindow #closeBuild:before {
+	content: 'X'
+}
+
+.charImage {
+	width: 100px;
+}
+
+.content {
+	margin: 10px;
+	display: flex;
+    flex-direction: row;
+	font-size: 12px;
+}
+
+.content select, .content input {
+	font-size: 11px;
+	color: white;
+}
+
+.content input
+{
+	border: 0;
+	background-color: #000;
+    margin-left: auto;
+    width: 40px;
+	text-align: right;
+	background-color: #454544;
+}
+
+.content input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.content input::-webkit-outer-spin-button,
+.content input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.optionExt {
+	/*border: 1px inset #ccc;*/
+	margin-left: 5px;
+	background-color: #454544;
+}
+
+.charDetails {
+	flex-grow: 1;
+	text-align: center;
+	font-size: 14px;
+	display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.statistic {
+	margin: 10px 0;
+}
+.statistic > span:first-child {
+	display: inline-block;
+	width: 60px;
+	text-transform: capitalize;
+}
+
+.rrPoints {
+	flex-grow: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 20px;
+	font-size: 11px;
+	color: red;
+}
+
+.pointsToAdd {
+	position: absolute;
+    color: green;
+    font-size: 11px;
+    margin-top: -3px;
+}
+
+#buildStats {
+	margin: 0;
+	width: 100%;
+}
+
+#buildStats button {
+	margin-top: 15px;
+}
+
+.needsUpdate {
+	color: lime;
+}

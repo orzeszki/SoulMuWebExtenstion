@@ -1,0 +1,28 @@
+{
+   "background": {
+      "scripts": ["background.js"]
+   },
+   "content_scripts": [ {
+      "css": ["style.css"],
+      "js": [ "jquery-3.5.1.min.js", "main.js"],
+      "matches": [ "*://soulmu.pl/index.php?strona=mupageaccount/*"]
+   },
+   {
+      "css": ["style.css"],
+      "js": [ "jquery-3.5.1.min.js", "reset.js"],
+      "matches": [ "*://soulmu.pl/index.php?strona=mupageaccount/reset*"]
+   } ],
+   "description": "Dodatek do tworzenia buildów postaci i automatycznego dodawania punktów po resecie.",
+   "icons": {
+      "128": "icons/128.png",
+      "16": "icons/16.png",
+      "48": "icons/48.png"
+   },
+   "manifest_version": 2,
+   "name": "SoulMu Helper",
+   "permissions": [ "*://soulmu.pl/index.php?strona=mupageaccount/*", "storage" ],
+   "short_name": "SoulMu",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.1",
+   "web_accessible_resources": ["icons/*"]
+}
