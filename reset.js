@@ -5,7 +5,7 @@ jSoul(document).on('linksloaded', function(){
 
     if(build != null && build.active)
     {
-        let ptkstart = 1*build.ppr;
+        let ptkstart = build.reset*build.ppr;
         let ptkend = 0;
         let points = calculateStats(ptkstart, build.stats);
 
@@ -20,19 +20,25 @@ jSoul(document).on('linksloaded', function(){
             ptkend += stat.value;
         });
 
+        ptkend = ptkstart - ptkend;
+
        // console.log(prepare_stats);
 
         if(points.length > 0)
         {
             jSoul.post('http://soulmu.pl/index.php?strona=mupageaccount/rozdaj&char='+charname,
-            `str=18&agl=18&vit=15&enr=30&com=0&ptkstart=${ptkstart}&ptkend=${ptkend}&stradd=${prepare_stats['strength']}&agladd=${prepare_stats['agility']}&vitadd=${prepare_stats['vitality']}&enradd=${prepare_stats['energy']}&comadd=${prepare_stats['command']}&chr2=${charname}`)
+            `str=20&agl=20&vit=20&enr=20&com=${build.class=='dl' ? 20 : 0}&ptkstart=${ptkstart}&ptkend=${ptkend}&stradd=${prepare_stats['strength']}&agladd=${prepare_stats['agility']}&vitadd=${prepare_stats['vitality']}&enradd=${prepare_stats['energy']}&comadd=${prepare_stats['command']}&chr2=${charname}`)
             .done(function(data){
                 if(jSoul(data).find('center:contains(rozdane)').length == 0)
                     alert("Wystąpił błąd, punkty musisz dodać ręcznie.");
             })
             .fail(function(){
-                alert("Automatyczne dodawanie punktów nie powiodło się.")
+                alert("Automatyczne dodawanie punktów nie powiodło się.");
             });
+        }
+        else
+        {
+            alert('Masz włączony build dla tej postaci, ale nie jest skonfigurowany.');
         }
     }
 });

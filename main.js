@@ -51,9 +51,9 @@ jSoul(document).ready(function(){
 		let charreset = parseInt(td_char.find('font').eq(1).text().match(/\d+/g)[1]);
 		let pointsPerReset = getPointsForReset(charclass);
 
-		saveOrCreateBuild(charname, {reset: charreset, ppr: pointsPerReset});
+		saveOrCreateBuild(charname, {reset: charreset, ppr: pointsPerReset, class: charclass});
 
-		if(charreset >= 99)
+		if(charreset > 99)
 		{
 			saveOrCreateBuild(charname, {active: false});
 		}
