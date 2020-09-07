@@ -2,6 +2,7 @@ const jSoul = jQuery;
 
 const statistics = ['strength', 'agility', 'vitality', 'energy', 'command'];
 const classes = ['dk', 'dw', 'elf', 'dl', 'mg', 'sum'];
+const maxStat = 31980;
 
 const event_links = new Event('linksloaded');
 
@@ -124,7 +125,7 @@ function updateStats(onSave = false)
 {
 	jSoul('.pointsToAdd').text('');
 
-	let availablePoints = jSoul('.rrPoints').data('points'); // 81 000
+	let availablePoints = jSoul('.rrPoints').data('points');
 	var data = jSoul("#buildStats :input").serializeArray();
 	
 	try {
@@ -167,8 +168,8 @@ function calculateStats(availablePoints, stats, checkFreePoints=false)
 	let pointsLeft = availablePoints;
 
 	constStats.forEach(function(stat){
-		if(stat.value > 32000)
-			throw 'Jedna ze statystyk przekroczyła limit 32000 pkt.';
+		if(stat.value > maxStat)
+			throw `Jedna ze statystyk przekroczyła limit ${maxStat} pkt.`;
 		else if(stat.value > pointsLeft)
 			throw 'Przekroczno limit dostępnych punktów.';
 		else {
@@ -183,17 +184,17 @@ function calculateStats(availablePoints, stats, checkFreePoints=false)
 	percentageStats.forEach(function(stat){
 		let pointsToAdd = Math.floor(stat.value/100 * pointsLeft);
 
-		if(pointsToAdd > 32000)
+		if(pointsToAdd > maxStat)
 		{
-			pointsOverLimit += pointsToAdd-32000;
-			pointsToAdd = 32000;
+			pointsOverLimit += pointsToAdd-maxStat;
+			pointsToAdd = maxStat;
 		}
 		else
 		{
-			if(pointsToAdd+pointsOverLimit > 32000)
+			if(pointsToAdd+pointsOverLimit > maxStat)
 			{
-				pointsOverLimit = pointsToAdd+pointsOverLimit-32000;
-				pointsToAdd = 32000;
+				pointsOverLimit = pointsToAdd+pointsOverLimit-maxStat;
+				pointsToAdd = maxStat;
 			}
 			else
 			{
@@ -275,7 +276,7 @@ function updateSelectList(list)
 	
 	switch(selectedOption)
 	{
-		case 1: {jSoul(list).after(`<span class="optionExt"><input class="constInput" name="${jSoul(list).attr('name')+'_const'}" type="number" min="1" max="32000" value="0">p.</input></span>`);break;}
+		case 1: {jSoul(list).after(`<span class="optionExt"><input class="constInput" name="${jSoul(list).attr('name')+'_const'}" type="number" min="1" max="${maxStat}" value="0">p.</input></span>`);break;}
 		case 2: {
 			jSoul(list).after(`<span class="optionExt"><input class="percentInput" name="${jSoul(list).attr('name')+'_percent'}" type="number" min="1" max="100" value="0" title="Procent punktów z pozostałej puli">%</input></span>`);
 			break;

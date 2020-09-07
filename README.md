@@ -39,9 +39,12 @@ Jeżeli w buildzie będziemy mieli jedną lub więcej statystyk typu "Stała ilo
 ![Screenshot](docs/screen4.PNG)
 
 Zielone słowo **"[UPDATE]"** wskazuje na to, że mamy nadwyżkę punktów, taki napis pojawia się, gdy:
-* wszystkie statystyki typu "Dynamiczna ilość" zostały zmaksowane do 32000,
+* wszystkie statystyki typu "Dynamiczna ilość" zostały zmaksowane do 31980,
 * mamy statystyki tylko typu "Stała ilość" i naturalnie wraz z resetem pojawiło się więcej punktów,
 * włączyliśmy build, a nawet nie przystąpiliśmy do jego konfiguracji.
 
-Jeżeli przy którejś statystyce typu "Dynamiczna ilość" pokazuje się na zielono +32000 to polecam ustawić ją jako typ "Stała ilość" i wklepać tam z ręki 32000, a pozostałe statystyki wg uznania zmienić na "Dynamiczna ilość" lub "Stała ilość". Dopóki wszystkie statystyki typu "Dynamiczna ilość" nie zostaną zmaksowane to oznaczenie **"[UPDATE]"** nie powinno się pojawić. 
+Jeżeli przy którejś statystyce typu "Dynamiczna ilość" pokazuje się na zielono +31980 to polecam ustawić ją jako typ "Stała ilość" i wklepać tam z ręki 31980, a pozostałe statystyki wg uznania zmienić na "Dynamiczna ilość" lub "Stała ilość". Dopóki wszystkie statystyki typu "Dynamiczna ilość" nie zostaną zmaksowane to oznaczenie **"[UPDATE]"** nie powinno się pojawić. 
 
+Powyższy sposób widać na screenie niżej przy 99 rr:
+
+![Screenshot](docs/screen5.PNG)
