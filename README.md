@@ -48,3 +48,5 @@ Jeżeli przy którejś statystyce typu "Dynamiczna ilość" pokazuje się na zie
 Powyższy sposób widać na screenie niżej przy 99 rr:
 
 ![Screenshot](docs/screen5.PNG)
+
+## 3. Po GR build jest przywracany do ustawień domyślnych.

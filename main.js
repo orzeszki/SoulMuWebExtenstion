@@ -67,6 +67,15 @@ jSoul(document).ready(function(){
 
 		let build = getBuild(charname);
 
+		try {
+			calculateStats(availablePoints, build.stats) //jezeli wystapi blad w kalkulacji to oznacza GR
+		}
+		catch(e)
+		{
+			saveOrCreateBuild(charname, {active: false, stats:[]});
+			build = getBuild(charname);
+		}
+
 		let checkFreePoints = calculateStats(availablePoints, build.stats, true);
 		let buildNeedsUpdate = !Array.isArray(checkFreePoints) && build.active;
 		
