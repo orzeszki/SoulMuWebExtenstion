@@ -3,13 +3,13 @@
 ## 1. Jak korzystać z wtyczki?
 Po zainstalowaniu wtyczki i odświeżeniu strony z Panelem Gracza powinieneś zobaczyć taki widok:
 
-![Screenshot](docs/screen.png)
+![Screenshot](docs/screen.PNG)
 
 Buildy dla każdej z postaci są z automatu WYŁĄCZONE. Kliknij w napis **Build postaci** przy postaci, której build chcesz skonfigurować.
 
 Naszym oczom ukaże się takie okienko:
 
-![Screenshot](docs/screen2.png)
+![Screenshot](docs/screen2.PNG)
 
 Zwróć uwagę na ilość dostępnych punktów (czerwony napis). Tyle dostanie postać po resie.
 
@@ -20,7 +20,7 @@ Z rozwijanych list widocznych przy każdej statystyce wybieramy sposób w jaki p
 
 Przykładowy build dla SM na początek:
 
-![Screenshot](docs/screen3.png)
+![Screenshot](docs/screen3.PNG)
 
 **_Wartości procentowe statystyk typu Dynamiczna ilość muszą zawsze łącznie dawać 100%. W powyższym przykładzie jest 70% i 30%._**
 
@@ -36,7 +36,7 @@ Czyli jeżeli mamy np. Agility 30% i Energy 70% to najpierw zostanie zmaksowana 
 
 Jeżeli w buildzie będziemy mieli jedną lub więcej statystyk typu "Stała ilość" to możemy spodziewać się takiego widoku:
 
-![Screenshot](docs/screen4.png)
+![Screenshot](docs/screen4.PNG)
 
 Zielone słowo **"[UPDATE]"** wskazuje na to, że mamy nadwyżkę punktów, taki napis pojawia się, gdy:
 * wszystkie statystyki typu "Dynamiczna ilość" zostały zmaksowane do 32000,
