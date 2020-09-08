@@ -2,10 +2,11 @@ jSoul(document).on('linksloaded', function(){
     let url = new URL(window.location.href);
     let charname = url.searchParams.get('char');
     let build = getBuild(charname);
+    let resetSuccess = jSoul('center:contains(resetowana)').length > 0;
 
-    if(build != null && build.active)
+    if(build != null && build.active && resetSuccess)
     {
-        let ptkstart = build.reset*build.ppr;
+        let ptkstart = (build.reset+1)*build.ppr; //+1 do rr, bo strona od resa nie aktualizuje od razu jego wartosci do nowej
         let ptkend = 0;
         let points = calculateStats(ptkstart, build.stats);
 
@@ -29,6 +30,8 @@ jSoul(document).on('linksloaded', function(){
             .done(function(data){
                 if(jSoul(data).find('center:contains(rozdane)').length == 0)
                     alert("Wystąpił błąd, punkty musisz dodać ręcznie.");
+                else
+                    console.log('Punkty dodane pomyslnie.');
             })
             .fail(function(){
                 alert("Automatyczne dodawanie punktów nie powiodło się.");
@@ -39,4 +42,6 @@ jSoul(document).on('linksloaded', function(){
             alert('Masz włączony build dla tej postaci, ale nie jest skonfigurowany.');
         }
     }
+    else
+        console.log('Build jest nieaktywny albo brak');
 });

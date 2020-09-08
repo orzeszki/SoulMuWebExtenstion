@@ -58,7 +58,7 @@ jSoul(document).ready(function(){
 
 		saveOrCreateBuild(charname, {reset: charreset, ppr: pointsPerReset, class: charclass});
 
-		if(charreset > 99)
+		if(charreset+1 > 99)
 		{
 			saveOrCreateBuild(charname, {active: false});
 		}
