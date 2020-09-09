@@ -33,7 +33,7 @@ jSoul(document).on('linksloaded', function(){
                     alert("Wystąpił błąd, punkty musisz dodać ręcznie.");
                 else
                 {
-                    message.append(`<div style="color:green">Punkty rozdano wg buildu.</div>`);
+                    jSoul('center:contains(resetowana)').last().before(`<div style="color:lime; text-align: center;">Punkty rozdano wg buildu.</div>`);
                 }
             })
             .fail(function(){
