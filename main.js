@@ -39,7 +39,7 @@ function getClassShortcut(classname)
 }
 
 jSoul(document).ready(function(){
-	let char_table = $("table[width=210][height=484]");
+	let char_table = jSoul("table[width=210][height=484]");
 
 	let charactersCount = 0;
 	
@@ -89,7 +89,7 @@ jSoul(document).ready(function(){
 })
 
 jSoul(document).on("click", "#closeBuild", function(){
-	$(this).parent().parent().remove();
+	jSoul(this).parent().parent().remove();
 })
 
 jSoul(document).on("submit", "#buildStats", function(e){
@@ -101,7 +101,7 @@ jSoul(document).on("submit", "#buildStats", function(e){
 	let checkPercentage = 0;
 	
 	jSoul.each(jSoul('.percentInput'), function(){
-		checkPercentage += parseInt($(this).val());
+		checkPercentage += parseInt(jSoul(this).val());
 	});
 	
 	if(checkPercentage != 100 && checkPercentage != 0)
@@ -278,7 +278,7 @@ function showBuildWindow(e)
 
 function updateSelectList(list)
 {
-	let selectedOption = $(list).prop('selectedIndex');
+	let selectedOption = jSoul(list).prop('selectedIndex');
 			
 	jSoul(list).parent().find('.optionExt').remove();
 	jSoul(list).parent().find('.pointsToAdd').text('');

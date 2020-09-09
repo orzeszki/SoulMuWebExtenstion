@@ -19,7 +19,6 @@
    "name": "SoulMu Helper",
    "permissions": [ "*://soulmu.pl/index.php?strona=mupageaccount/*", "storage" ],
    "short_name": "SoulMu",
-   "update_url": "https://clients2.google.com/service/update2/crx",
    "version": "0.1",
    "web_accessible_resources": ["icons/*"]
 }

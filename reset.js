@@ -28,10 +28,13 @@ jSoul(document).on('linksloaded', function(){
             jSoul.post('http://soulmu.pl/index.php?strona=mupageaccount/rozdaj&char='+charname,
             `str=20&agl=20&vit=20&enr=20&com=${build.class=='dl' ? 20 : 0}&ptkstart=${ptkstart}&ptkend=${ptkend}&stradd=${prepare_stats['strength']}&agladd=${prepare_stats['agility']}&vitadd=${prepare_stats['vitality']}&enradd=${prepare_stats['energy']}&comadd=${prepare_stats['command']}&chr2=${charname}`)
             .done(function(data){
-                if(jSoul(data).find('center:contains(rozdane)').length == 0)
+                let message = jSoul(data).find('center:contains(rozdane)');
+                if(message.length == 0)
                     alert("Wystąpił błąd, punkty musisz dodać ręcznie.");
                 else
-                    console.log('Punkty dodane pomyslnie.');
+                {
+                    message.append(`<div style="color:green">Punkty rozdano wg buildu.</div>`);
+                }
             })
             .fail(function(){
                 alert("Automatyczne dodawanie punktów nie powiodło się.");
