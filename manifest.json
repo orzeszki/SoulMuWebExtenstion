@@ -19,6 +19,6 @@
    "name": "SoulMu Helper",
    "permissions": [ "*://soulmu.pl/index.php?strona=mupageaccount/*", "storage" ],
    "short_name": "SoulMu",
-   "version": "0.1",
+   "version": "0.11",
    "web_accessible_resources": ["icons/*"]
 }
