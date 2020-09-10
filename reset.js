@@ -1,4 +1,4 @@
-jSoul(document).on('linksloaded', function(){
+document.addEventListener('linksloaded', function(){
     let url = new URL(window.location.href);
     let charname = url.searchParams.get('char');
     let build = getBuild(charname);
