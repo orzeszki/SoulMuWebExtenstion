@@ -53,7 +53,7 @@ jSoul(document).ready(function(){
 		
 		let charname = td_char.find('a[href*="char"]').text();
 		let charclass = getClassShortcut(td_char.find('font').eq(1).text().match(/^\D*/g)[0]);
-		let charreset = parseInt(td_char.find('font').eq(1).text().match(/\d+/g)[1]);
+		let charreset = myParseInt(td_char.find('font').eq(1).text().match(/\d+/g)[1]);
 		let pointsPerReset = getPointsForReset(charclass);
 
 		saveOrCreateBuild(charname, {reset: charreset, ppr: pointsPerReset, class: charclass});
@@ -101,7 +101,7 @@ jSoul(document).on("submit", "#buildStats", function(e){
 	let checkPercentage = 0;
 	
 	jSoul.each(jSoul('.percentInput'), function(){
-		checkPercentage += parseInt(jSoul(this).val());
+		checkPercentage += myParseInt(jSoul(this).val());
 	});
 	
 	if(checkPercentage != 100 && checkPercentage != 0)
@@ -121,13 +121,18 @@ jSoul(document).on("submit", "#buildStats", function(e){
 })
 
 jSoul(document).on('change', '#buildStats .constInput', function(){
-	jSoul(this).data('points', parseInt(jSoul(this).val()))
+	jSoul(this).data('points', myParseInt(jSoul(this).val()))
 	updateStats();
 })
 
 jSoul(document).on('change', '#buildStats .percentInput', function(){	
-	jSoul(this).data('points', parseInt(jSoul(this).val()))
+	jSoul(this).data('points', myParseInt(jSoul(this).val()))
 	updateStats();
+})
+
+jSoul(document).on('focus', '#buildStats input', function(){
+	if(myParseInt(jSoul(this).val()) <= 0)
+		jSoul(this).val(null);
 })
 
 function updateStats(onSave = false)
@@ -182,8 +187,8 @@ function calculateStats(availablePoints, stats, checkFreePoints=false)
 		else if(stat.value > pointsLeft)
 			throw 'Przekroczno limit dostępnych punktów.';
 		else {
-			pointsLeft -= parseInt(stat.value);
-			points.push({name: stat.name.replace('_const',''), value: parseInt(stat.value)});
+			pointsLeft -= myParseInt(stat.value);
+			points.push({name: stat.name.replace('_const',''), value: myParseInt(stat.value)});
 		}
 	});
 
@@ -398,4 +403,9 @@ function getPointsForReset(charclass)
 	}
 	
 	return points;
+}
+
+function myParseInt(val)
+{
+	return parseInt(val) || 0;
 }
